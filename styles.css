@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+
+body {
+    font-family: 'PT Mono', monospace;
+}
+
+main {
+    width:40%;
+    margin: auto;
+    height: 90vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 768px) {
+    main {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 540px){
+    main {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 300px){
+    h1 {
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: .55rem;
+    }
+}
+
+#content {
+    position: relative;
+    
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: .4rem;
+
+    border: 5px solid rgb(112, 0, 78);
+
+
+    overflow: hidden;
+}
+
+hr {
+    background-color: rgb(112, 0, 78);
+}
+
+#content-head {
+    width: 100%;
+    color: rgb(255, 0, 191);
+    
+    flex: 20%;
+}
+
+#content-head p {
+    font-weight: bold;
+}
+
+#content-body {
+    width: 100%;
+
+    flex: 80%;
+
+    /* column-count: 4;
+    column-gap: 10px; */
+}
+
+.card {
+    height: 5rem;
+    
+    background-color: rgb(112, 0, 78);
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: opacity .4s;
+}
+
+.card:hover {
+    opacity: 0.6;
+}
+
+#popup {
+    display: flex;
+
+    border-radius: 10px;
+
+    width: 50%;
+
+    line-height: 1rem;
+
+    position: absolute;
+    bottom: -50px;
+    left: 50px;
+
+    font-size: .8rem;
+
+    /* transform-origin: center; */
+    
+}
+
+@media screen and (max-width: 1300px){
+    #popup {
+        width: 75%;
+    }
+}
+
+@keyframes bounce-popup {
+    /* 0% {
+        bottom: -120px;
+        left: 200px;
+
+        transform: rotateY(0deg) rotate(0deg);
+    }
+
+    50% {
+        bottom: 100px;
+        left: 45px;
+
+        transform: rotateY(0deg) rotate(0deg);
+    }
+
+    65% {
+        bottom: 50px;
+        left: 25px;
+
+        transform: rotateY(-45deg) rotate(-45deg);
+    }
+
+    75% {
+        bottom: 75px;
+        left: 25px;
+    }
+
+    100% {
+        bottom: 50px;
+        left: 25px;
+        transform: rotateY(0deg) rotate(0deg);
+    } */
+
+    0% {
+        bottom: -120px;
+        transform: rotate(360deg);
+    }
+
+    50% {
+        bottom: 50px;
+        transform: rotate(0deg);
+    }
+
+    75% {
+        bottom: 50px;
+        transform: rotate(25deg);
+    }
+
+    100% {
+        bottom: 50px;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes unbounce-popup {
+    0% {
+        bottom: 50px;
+        transform: rotate(0deg);
+    }
+
+    50% {
+        bottom: 50px;
+        transform: rotate(25deg);
+    }
+
+    75% {
+        bottom: 50px;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        bottom: -120px;
+        transform: rotate(360deg);
+    }
+}
+
+.popup-goes {
+    animation: unbounce-popup .5s ease-in-out 1 forwards;
+}
+
+/* #content:hover #popup {
+    animation: bounce-popup 1.2s ease-in-out 1 forwards;
+} */
+
+.popup-comes {
+    animation: bounce-popup .5s ease-in-out 1 forwards;
+}
+
+#bell {
+    width: 25%;
+    /* flex: 20%; */
+    height: 3rem;
+
+    color: rgb(255, 0, 191);
+    background-color: rgb(255, 101, 206);
+
+    font-size: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-bell {
+    transform: scale(0);
+}
+
+@keyframes grow-bell-icon {
+    0% {
+        transform: scale(.1);
+        bottom: 50px;
+        bottom: -10px;
+    }
+
+    100% {
+        bottom: 0px;
+        transform: scale(1);
+    }
+}
+
+.bell-icon-grows {
+    position: relative;
+    animation: grow-bell-icon .2s ease-in-out 1 forwards;
+}
+
+.text {
+    width: 75%;
+    /* flex: 80%; */
+
+    color: rgb(112, 0, 78);
+    background-color: rgb(255, 0, 191);
+
+    text-align: center;
+
+    transform-origin: left center;
+
+    display: none;
+}
+
+@keyframes unfold-text {
+    0% {
+        transform: rotateY(-90deg) rotate(-180deg);
+    }
+
+    50% {
+        transform: rotateY(25deg);
+    }
+
+    80% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes fold-text {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    50% {
+        transform: rotateY(-10deg);
+    }
+
+    80% {
+        transform: rotate(25deg);
+    }
+
+    100% {
+        transform: rotateY(-90deg) rotate(-180deg);
+    }
+}
+
+.text-unfolded {
+    display: block;
+    animation: unfold-text .5s ease-in-out 1 forwards;
+}
+
+.text-folded {
+    animation: fold-text .5s ease-in-out 1 forwards;
+}
