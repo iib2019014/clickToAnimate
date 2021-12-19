@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
 
 body {
-    font-family: 'PT Mono', monospace;
+    font-family: 'Bree Serif', serif;
 }
 
 main {
@@ -76,6 +76,7 @@ hr {
 
 #content-head p {
     font-weight: bold;
+    letter-spacing: .1rem;
 }
 
 #content-body {
